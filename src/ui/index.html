@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <meta
+      charset="UTF-8"
+      http-equiv="Content-Security-Policy"
+      content="
+            default-src 'self';
+            script-src 'self';
+            style-src 'self';
+            img-src 'self' data: ;
+            connect-src 'self';
+            font-src 'self';
+            "
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SteamNotify</title>
+  </head>
+
+  <body>
+    <div class="main-box">
+      <h1 class="title-card">SteamNotify</h1>
+      <button id="quit-button" class="quit-button">
+        <img src="../../img/closeButton.png" alt="quit button" />
+      </button>
+      <button id="test-button" class="button-style testNotification">
+        Test Notification
+      </button>
+      <button id="button" class="button-style button1">secondButton</button>
+      <button class="settings-button"><img src="../../img/settings.png" alt="settings button"></button>
+    </div>
+    
+
+    <script src="../renderer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+node_modules/
+**/steam_games*
+**/testAchievements*
+.npm
+dist/
+.env
+.vscode
+tests/
