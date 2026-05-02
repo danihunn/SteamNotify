@@ -26,12 +26,101 @@
         <img src="../../img/closeButton.png" alt="quit button" />
       </button>
       <button id="test-button" class="button-style testNotification">
-        Test Notification
+        Test
       </button>
-      <button id="button" class="button-style button1">secondButton</button>
-      <button class="settings-button"><img src="../../img/settings.png" alt="settings button"></button>
+      <button class="settings-button">
+        <img src="../../img/settings.png" alt="settings button" />
+      </button>
+      <button id="tray-button" class="tray-button">
+        <img src="../../img/minus.png" alt="minimize">
+      </button>
+      <div class="volume-control">
+        <label for="volume-slider">Volume</label>
+        <input type="range" id="volume-slider" min="0" max="100" value="100" />
+      </div>
     </div>
-    
+
+    <div class="settings-panel">
+      <div class="setting-row">
+        <label>Position</label>
+        <select id="corner-select" class="setting-select">
+          <option value="bottom-right">Bottom Right</option>
+          <option value="bottom-left">Bottom Left</option>
+          <option value="top-right">Top Right</option>
+          <option value="top-left">Top Left</option>
+          <option value="middle-right" selected>Middle Right</option>
+          <option value="middle-left">Middle Left</option>
+        </select>
+      </div>
+
+      <div class="setting-row">
+        <label>Duration</label>
+        <input
+          type="range"
+          id="duration-slider"
+          min="1000"
+          max="15000"
+          step="500"
+          value="15000"
+        />
+        <span id="duration-value">15s</span>
+      </div>
+<!-- 
+      <div class="setting-row">
+        <label>Width</label>
+        <input
+          type="range"
+          id="width-slider"
+          min="200"
+          max="600"
+          step="10"
+          value="380"
+        />
+        <span id="width-value">380px</span>
+      </div>
+
+      <div class="setting-row">
+        <label>Height</label>
+        <input
+          type="range"
+          id="height-slider"
+          min="60"
+          max="200"
+          step="5"
+          value="100"
+        />
+        <span id="height-value">100px</span>
+      </div>
+
+      <div class="setting-row">
+        <label>Margin</label>
+        <input
+          type="range"
+          id="margin-slider"
+          min="0"
+          max="100"
+          step="5"
+          value="20"
+        />
+        <span id="margin-value">20px</span>
+      </div>
+
+      <div class="setting-row">
+        <label>Sound</label>
+        <select id="sound-select" class="setting-select">
+          <option value="sounds/achi_sound_01.mp3">Sound 1</option>
+          <option value="sounds/achi_sound_02.mp3">Sound 2</option>
+          <option value="sounds/achi_sound_03.mp3">Sound 3</option>
+          <option value="sounds/achi_sound_04.mp3">Sound 4</option>
+          <option value="sounds/achi_sound_05.mp3">Sound 5</option>
+          <option value="sounds/achi_sound_06.mp3">Sound 6</option>
+          <option value="sounds/achi_sound_07.mp3">Sound 7</option>
+          <option value="sounds/achi_sound_08.mp3">Sound 8</option>
+          <option value="sounds/psSound.mp3">PlayStation</option>
+          <option value="sounds/xboxSound.mp3">Xbox</option>
+        </select>
+      </div> -->
+    </div>
 
     <script src="../renderer.js"></script>
   </body>

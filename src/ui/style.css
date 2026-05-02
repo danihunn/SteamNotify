@@ -1,8 +1,19 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   overflow: hidden;
   display: flex;
-  /* background-color: transparent; */
-}
+  border: 5px solid #000000;
+  border-radius: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} 
 
 .title-card {
   -webkit-app-region: drag;
@@ -42,8 +53,11 @@ body {
 }
 
 .testNotification {
+  width: auto;
+  height: auto;
   position: absolute;
-  bottom: 100px;
+  top: 332px;
+  bottom: unset;
 }
 
 .button1 {
@@ -56,6 +70,8 @@ body {
   position: relative;
   height: 800px;
   width: 600px;
+  border-radius: 30px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,6 +98,27 @@ body {
   height: auto;
 }
 
+.tray-button {
+  -webkit-app-region:no-drag;
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+.tray-button:hover {
+  transform: scale(1.2);
+}
+
+.tray-button img {
+  width: 25px;
+  height: auto;
+}
+
 .settings-button {
   -webkit-app-region: no-drag;
   position: absolute;
@@ -101,4 +138,87 @@ body {
 .settings-button img {
   width: 25px;
   height: auto;
+}
+
+.volume-control label {
+  font-size: 12px;
+  font-weight: 600;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: absolute;
+  top: -13px;
+}
+
+.volume-control {
+  -webkit-app-region:no-drag;
+  display: flex;
+  position: absolute;
+  top: 230px;
+  gap: 8px;
+  pad: 8px 16px;
+}
+
+#volume-slider {
+  flex: 1;
+  accent-color: #2c2c2c;
+  cursor: pointer;
+}
+
+#volume-value {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  width: 36px;
+}
+
+.settings-panel {
+  -webkit-app-region: no-drag;
+  position: absolute;
+  top: 270px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.setting-row label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: black;
+  width: 70px;
+  flex-shrink: 0;
+}
+
+.setting-row input[type="range"] {
+  flex: 1;
+  accent-color: #2c2c2c;
+  cursor: pointer;
+}
+
+.setting-row span {
+  font-size: 11px;
+  color: rgba(0,0,0,0.5);
+  width: 42px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.setting-select {
+  flex: 1;
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 3px 6px;
+  font-size: 12px;
+  cursor: pointer;
+  color: black;
 }

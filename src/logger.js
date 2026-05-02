@@ -9,7 +9,8 @@ function log(message){
     }
 
     // browser log
-    const win = BrowserWindow.getAllWindows()[0];
+    const windows = BrowserWindow.getAllWindows()
+    const win = windows.find(w => !w.isDestroyed() && w.webContents.getURL().includes('index.html'))
     if (win) {
         win.webContents.send('backend-log', message);
     }
@@ -18,7 +19,9 @@ function log(message){
 function errorLog(message) {
     console.error(message);
 
-    const win = BrowserWindow.getAllWindows()[0];
+    const windows = BrowserWindow.getAllWindows()
+    const win = windows.find(w => !w.isDestroyed() && w.webContents.getURL().includes('index.html'))
+
     if (win) {
         win.webContents.send('backend-error', message);
     }
