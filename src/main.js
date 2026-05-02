@@ -1,8 +1,9 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, screen, Tray, Menu, nativeImage } = require("electron");
 const path = require("node:path");
 
 const { log, errorLog } = require("./logger");
 
+let tray = null
 
 process.on("uncaughtException", (err) => {
   errorLog(`[FATAL] Uncaught Exception: ${err}`);
@@ -11,7 +12,9 @@ process.on("uncaughtException", (err) => {
 });
 
 require("./config");
-require("./achievementData");
+require("./achievementWatcher");
+require("./popup")
+require('./gameDetector')
 
 ipcMain.on("quit-app", () => {
   app.quit();
@@ -24,9 +27,9 @@ const createWindow = () => {
       webPreferences: {
         preload: path.join(__dirname, "preload.js"),
       },
-      height: 800,
+      height: 400,
       width: 600,
-      minHeight: 800,
+      minHeight: 400,
       minWidth: 600,
       roundedCorners: true,
       frame: false,
@@ -39,6 +42,28 @@ const createWindow = () => {
         app.quit()
         process.exit(1)
     });
+
+    ipcMain.on('minimize-to-tray', ()=>{
+  win.hide()
+  if (!tray) {
+    // const iconPath = path.join(__dirname, 'img', 'trayIcon.png')
+    // const icon = nativeImage.createFromPath(iconPath)
+    tray = new Tray(`C:\\Users\\balin\\Desktop\\Coding\\SteamNotify\\img\\trayIcon.ico`)
+
+    tray.setToolTip('SteamNotify')
+
+    const contextMenu = Menu.buildFromTemplate([
+      {label: 'Open', click: () => win.show()},
+      {label: 'Quit', click: () => app.quit()}
+    ])
+    tray.setContextMenu(contextMenu)
+
+    tray.on('click', () => {
+      win.show()
+    })
+  }
+})
+
   } catch (err) {
     errorLog(`[FATAL] couldn't draw window: ${err}`);
     app.quit();

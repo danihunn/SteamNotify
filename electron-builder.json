@@ -3,8 +3,9 @@
     "files": [
         "src/**/*",
         "!**/.env",
-        "./img",
-        "!userData"
+        "img/**/*",
+        "!userData",
+        "sounds/**/*"
     ],
     "icon": "./img/desktopIcon.png", 
 

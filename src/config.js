@@ -32,3 +32,4 @@ const userDataFolders = fs.readdirSync(steamIdFolder, {withFileTypes: true});
 const steamId = userDataFolders.find(f => f.isDirectory() && /^\d+$/.test(f.name) && f.name !== '0')?.name;
 
 log(`[INFO] steamId: ${steamId}`);
+module.exports = { steamPath, steamId }
